@@ -1,6 +1,2 @@
 #add for board init.rc for recovery mode
 import /init.recovery.common.rc
-
-on boot
-    start boot-hal-1-1
-    start health-hal-2-1
