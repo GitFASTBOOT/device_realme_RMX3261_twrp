@@ -7,6 +7,9 @@
 
 DEVICE_PATH := device/realme/RMX3261
 
+# For building with minimal manifest
+ALLOW_MISSING_DEPENDENCIES := true
+
 # A/B
 AB_OTA_UPDATER := true
 AB_OTA_PARTITIONS += \
