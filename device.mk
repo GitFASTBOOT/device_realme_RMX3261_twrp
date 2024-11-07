@@ -40,8 +40,7 @@ PRODUCT_PACKAGES += \
 
 # bootctrl HAL    
 PRODUCT_PACKAGES += \
-    bootctrl.unisoc \
-    bootctrl.ums512.recovery
+    bootctrl
 
 PRODUCT_PACKAGES += \
     otapreopt_script \
@@ -52,6 +51,5 @@ PRODUCT_PACKAGES += \
 
 # Fastbootd
 PRODUCT_PACKAGES += \
-    fastbootd \
     android.hardware.fastboot@1.0-impl-mock \
-    android.hardware.fastboot@1.0-impl-mock.recovery
+    fastbootd
