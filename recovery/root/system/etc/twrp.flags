@@ -1,28 +1,32 @@
 #RMX3261 FLAGS BY GITFASTBOOT
 
 # <mount_point>      <fstype>  <device>        <device2>                  <flags>
+# Core Partitions
+/boot               emmc      /dev/block/by-name/boot_a              flags=display="Boot";flashimg=1;backup=1;slotselect;
+/vendor_boot        emmc      /dev/block/by-name/vendor_boot_a       flags=display="Vendor Boot";flashimg=1;backup=1;slotselect;
+/system             emmc      /dev/block/by-name/super               flags=display="System";backup=1;wipeingui;slotselect;
+/userdata           emmc      /dev/block/by-name/userdata            flags=display="Data";backup=1;wipeingui;userdata;
+/cache              emmc      /dev/block/by-name/cache               flags=display="Cache";backup=1;wipeingui;
 
-#CORE
-/system_image          emmc      /dev/block/mapper/system_a               flags=display="System image";backup=1;flashimg=1
-/vendor_image          emmc      /dev/block/mapper/vendor_a               flags=display="Vendor image";backup=1;flashimg=1
-/product_image         emmc      /dev/block/mapper/product_a              flags=display="Product image";backup=1;flashimg=1
-/system_ext_image      emmc      /dev/block/mapper/system_ext_a           flags=display="System_ext image";backup=1;flashimg=1
-/super                 emmc      /dev/block/by-name/super                 flags=display="Super image";backup=1;flashimg=1
+# Sensitive Data
+/persist            emmc      /dev/block/by-name/persist             flags=display="Persist";backup=1;
 
-#BOOT
-/vbmeta                emmc      /dev/block/by-name/vbmeta                flags=display=vbmeta;slotselect;backup=1;flashimg=1
-/vbmeta_system         emmc      /dev/block/by-name/vbmeta_system         flags=display=vbmeta_system;slotselect;backup=1
-/vbmeta_vendor         emmc      /dev/block/by-name/vbmeta_vendor         flags=display=vbmeta_vendor;slotselect;backup=1
-/vbmeta_product        emmc      /dev/block/by-name/vbmeta_product        flags=display=vbmeta_product;slotselect;backup=1
-/vbmeta_system_ext     emmc      /dev/block/by-name/vbmeta_system_ext     flags=display=vbmeta_system_ext;slotselect;backup=1
-/boot                  emmc      /dev/block/by-name/boot_a                flags=display=boot;slotselect;backup=1;flashimg=1
-/dtbo				   emmc		 /dev/block/by-name/dtbo                  flags=display="DTBO";backup=1;flashimg=1
+# Firmware and Device Configurations
+/vbmeta             emmc      /dev/block/by-name/vbmeta_a            flags=display="VBMeta";flashimg=1;backup=1;slotselect;
+/vbmeta_vendor      emmc      /dev/block/by-name/vbmeta_vendor_a     flags=display="VBMeta Vendor";slotselect;
+/vbmeta_system      emmc      /dev/block/by-name/vbmeta_system_a     flags=display="VBMeta System";slotselect;
+/dtbo               emmc      /dev/block/by-name/dtbo_a              flags=display="DTBO";slotselect;
+/logo               emmc      /dev/block/by-name/fbootlogo           flags=display="Logo";backup=1;
 
-#DATA
-/data                  f2fs      /dev/block/by-name/userdata           
+# Modem and Additional Firmware
+/gnssmodem         emmc      /dev/block/by-name/gnssmodem_a         flags=display="GNSS Modem";slotselect;
+/trustos            emmc      /dev/block/by-name/trustos_a           flags=display="TrustOS";slotselect;
+/wcnmodem           emmc      /dev/block/by-name/wcnmodem_a          flags=display="WCN Modem";slotselect;
 
-#FRIMWARE 
-/mnt/vendor            ext4      /dev/block/by-name/prodnv                flags=display=vendor;backup=1;flashimg=1
+# Miscellaneous Partitions
+/misc              emmc      /dev/block/by-name/misc                flags=display="Misc";
+/metadata          emmc      /dev/block/by-name/metadata            flags=display="Metadata";backup=1;
+/super             emmc      /dev/block/by-name/super               flags=display="Super";
 
 # Removable storage
 /external_sd      vfat     /dev/block/mmcblk1p1  /dev/block/mmcblk1            flags=display="external_sd";storage;wipeingui;removable;fsflags="utf8"
