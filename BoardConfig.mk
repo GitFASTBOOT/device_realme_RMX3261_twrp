@@ -117,6 +117,7 @@ TW_NO_FASTBOOT_BOOT := true
 TW_BRIGHTNESS_PATH := "/sys/devices/platform/sprd_backlight/backlight/sprd_backlight/brightness"
 TW_DEFAULT_BRIGHTNESS := 1400
 TW_MAX_BRIGHTNESS := 2048
+TW_DEVICE_VERSION := Git_FASTBOOT
 
 #logs
 TARGET_USES_LOGD := true
